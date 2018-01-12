@@ -5,7 +5,9 @@ if [[ ! -d "$CACHE_DIR/$STACK/clang-$CLANG_VERSION" ]]; then
   echo $CLANG_VERSION
   echo 'linux'
   echo $DISTRIB_RELEASE
-  curl http://releases.llvm.org/$CLANG_VERSION/clang+llvm-$CLANG_VERSION-linux-x86_64-ubuntu$DISTRIB_RELEASE.tar.xz -s -L | xz -d -c | tar x -C $CACHE_DIR/$STACK/clang-$CLANG_VERSION --strip 1 &> /dev/null
+#  curl http://releases.llvm.org/$CLANG_VERSION/clang+llvm-$CLANG_VERSION-linux-x86_64-ubuntu$DISTRIB_RELEASE.tar.xz -s -L | xz -d -c | tar x -C $CACHE_DIR/$STACK/clang-$CLANG_VERSION --strip 1 &> /dev/null
+  sudo apt-get install clang llvm
+
 else
   puts-step "Using cached clang-$CLANG_VERSION"
 fi
